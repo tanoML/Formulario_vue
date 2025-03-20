@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario Centrado con Vue.js</title>
+  <!-- Se importa Vue.js desde un CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="form-container">
+      <form @submit.prevent="submitForm">
+        <div class="form-group">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" v-model="form.nombre">
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" v-model="form.email">
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" v-model="form.password">
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        form: {
+          nombre: '',
+          email: '',
+          password: ''
+        }
+      },
+      methods: {
+        submitForm() {
+          // Aquí puedes procesar los datos del formulario, por ejemplo, enviarlos a un servidor
+          console.log('Datos del formulario:', this.form);
+          alert('¡Formulario enviado!');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
